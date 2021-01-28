@@ -61,6 +61,8 @@ const char tags[][8] = { "1", "2", "3", "4", "5" };
 #include "bstack.c"
 #include "fullscreen.c"
 
+#include "movestack.c"
+
 /* by default the first layout entry is used */
 static Layout layouts[] = {
 	{ "[]=", tile },
@@ -83,15 +85,18 @@ static KeyBinding bindings[] = {
 	{ { MOD, 'C',          }, { create,         { NULL, NULL, "$CWD" }      } },
 	{ { MOD, 'x',          }, { killclient,     { NULL }                    } },
 	{ { MOD, 'j',          }, { focusnext,      { NULL }                    } },
+	{ { MOD, ' ',          }, { focusnext,      { NULL }                    } },
 //	{ { MOD, 'J',          }, { focusdown,      { NULL }                    } },
 //	{ { MOD, 'K',          }, { focusup,        { NULL }                    } },
 //	{ { MOD, 'H',          }, { focusleft,      { NULL }                    } },
 //	{ { MOD, 'L',          }, { focusright,     { NULL }                    } },
 	{ { MOD, 'k',          }, { focusprev,      { NULL }                    } },
+	{ { MOD, 'J',          }, { swapnext,       { NULL }                    } },
+	{ { MOD, 'K',          }, { swapprev,       { NULL }                    } },
 //	{ { MOD, 'f',          }, { setlayout,      { "[]=" }                   } },
 //	{ { MOD, 'g',          }, { setlayout,      { "+++" }                   } },
 //	{ { MOD, 'b',          }, { setlayout,      { "TTT" }                   } },
-//	{ { MOD, 'm',          }, { setlayout,      { "[ ]" }                   } },
+	{ { MOD, 'z',          }, { setlayout,      { "[ ]" }                   } },
 	{ { MOD, '\t',         }, { setlayout,      { NULL }                    } },
 	{ { MOD, 'i',          }, { incnmaster,     { "+1" }                    } },
 	{ { MOD, 'd',          }, { incnmaster,     { "-1" }                    } },
@@ -101,7 +106,7 @@ static KeyBinding bindings[] = {
 	{ { MOD, 'b',          }, { togglebar,      { NULL }                    } },
 	{ { MOD, 'B',          }, { togglebarpos,   { NULL }                    } },
 	{ { MOD, 'M',          }, { togglemouse,    { NULL }                    } },
-	{ { MOD, 'z',          }, { zoom ,          { NULL }                    } },
+	{ { MOD, 'm',          }, { zoom ,          { NULL }                    } },
 //	{ { MOD, '1',          }, { focusn,         { "1" }                     } },
 //	{ { MOD, '2',          }, { focusn,         { "2" }                     } },
 //	{ { MOD, '3',          }, { focusn,         { "3" }                     } },

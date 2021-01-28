@@ -213,6 +213,10 @@ static void toggleview(const char *args[]);
 static void viewprevtag(const char *args[]);
 static void view(const char *args[]);
 static void zoom(const char *args[]);
+static void arrange();
+static void detach(Client *c);
+static void attachafter(Client* c, Client *a);
+static bool isvisible(Client* c);
 
 /* commands for use by mouse bindings */
 static void mouse_focus(const char *args[]);
@@ -228,6 +232,7 @@ extern Screen screen;
 static unsigned int waw, wah, wax, way;
 static Client *clients = NULL;
 static char *title;
+static Client *sel = NULL;
 
 #include "config.h"
 
@@ -246,7 +251,6 @@ static const char *dvtm_name = "dvtm";
 Screen screen = { .mfact = MFACT, .nmaster = NMASTER, .history = SCROLL_HISTORY };
 static Pertag pertag;
 static Client *stack = NULL;
-static Client *sel = NULL;
 static Client *lastsel = NULL;
 static Client *msel = NULL;
 static unsigned int seltags;
