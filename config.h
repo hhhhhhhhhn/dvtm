@@ -55,6 +55,7 @@ static Color colors[] = {
 #define TAG_URGENT (COLOR(BLUE) | A_NORMAL | A_BLINK)
 
 #define SHIFT(c) \
+	(c == '0') ? '=' : \
 	(c == '1') ? '!' : \
 	(c == '2') ? '"' : \
 	(c == '3') ? '#' : \
@@ -112,9 +113,9 @@ static KeyBinding bindings[] = {
 	{ { MOD, '.',          }, { toggleminimize, { NULL }                    } },
 	{ { MOD, 'b',          }, { togglebar,      { NULL }                    } },
 	{ { MOD, 'B',          }, { togglebarpos,   { NULL }                    } },
-	{ { MOD, 'M',          }, { togglemouse,    { NULL }                    } },
-	{ { MOD, 'm',          }, { zoom ,          { NULL }                    } },
-//	{ { MOD, '1',          }, { focusn,         { "1" }                     } },
+	{ { MOD, 'P',          }, { togglemouse,    { NULL }                    } },
+	{ { MOD, 'M',          }, { zoom ,          { NULL }                    } },
+	{ { MOD, 'm',          }, { focusn,         { "1" }                     } },
 //	{ { MOD, '2',          }, { focusn,         { "2" }                     } },
 //	{ { MOD, '3',          }, { focusn,         { "3" }                     } },
 //	{ { MOD, '4',          }, { focusn,         { "4" }                     } },
@@ -139,6 +140,7 @@ static KeyBinding bindings[] = {
 	{ { KEY_SPREVIOUS,     }, { scrollback,     { "-1" }                    } },
 	{ { KEY_SNEXT,         }, { scrollback,     { "1"  }                    } },
 	{ { MOD, '0',          }, { view,           { NULL }                    } },
+	{ { MOD, SHIFT('0'),   }, { tag,            { NULL }                    } },
 	{ { MOD, KEY_F(1),     }, { tag,            { tags[0] }                 } },
 	{ { MOD, KEY_F(2),     }, { tag,            { tags[1] }                 } },
 	{ { MOD, KEY_F(3),     }, { tag,            { tags[2] }                 } },
