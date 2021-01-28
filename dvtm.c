@@ -1899,8 +1899,6 @@ main(int argc, char *argv[]) {
 	sigaddset(&blockset, SIGCHLD);
 	sigprocmask(SIG_BLOCK, &blockset, NULL);
 
-	togglebar(NULL);
-
 	while (running) {
 		int r, nfds = 0;
 		fd_set rd;
