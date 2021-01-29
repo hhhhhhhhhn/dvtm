@@ -86,6 +86,10 @@ static Layout layouts[] = {
 	{ { MOD, 'V', KEY,       }, { toggleview,     { tags[TAG] }               } }, \
 	{ { MOD, 'T', KEY,       }, { toggletag,      { tags[TAG] }               } },
 
+void command(const char *args[]) {
+	system(args[0]);	
+}
+
 /* you can specifiy at most 3 arguments */
 static KeyBinding bindings[] = {
 	{ { MOD, '\n',         }, { create,         { NULL }                    } },
@@ -101,6 +105,8 @@ static KeyBinding bindings[] = {
 	{ { MOD, 'k',          }, { focusprev,      { NULL }                    } },
 	{ { MOD, 'J',          }, { swapnext,       { NULL }                    } },
 	{ { MOD, 'K',          }, { swapprev,       { NULL }                    } },
+	{ { MOD, '+',          }, { command,        { "font +" }                } },
+	{ { MOD, '-',          }, { command,        { "font -" }                } },
 //	{ { MOD, 'f',          }, { setlayout,      { "[]=" }                   } },
 //	{ { MOD, 'g',          }, { setlayout,      { "+++" }                   } },
 //	{ { MOD, 'b',          }, { setlayout,      { "TTT" }                   } },
