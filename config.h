@@ -92,9 +92,9 @@ void command(const char *args[]) {
 
 /* you can specifiy at most 3 arguments */
 static KeyBinding bindings[] = {
-	{ { MOD, '\n',         }, { create,         { NULL }                    } },
-	{ { MOD, '\r',         }, { create,         { NULL }                    } },
-	{ { MOD, 'C',          }, { create,         { NULL, NULL, "$CWD" }      } },
+	{ { MOD, 'C',          }, { create,         { NULL }                    } },
+	{ { MOD, '\n',         }, { create,         { NULL, NULL, "$CWD" }      } },
+	{ { MOD, '\r',         }, { create,         { NULL, NULL, "$CWD" }      } },
 	{ { MOD, 'x',          }, { killclient,     { NULL }                    } },
 	{ { MOD, 'j',          }, { focusnext,      { NULL }                    } },
 	{ { MOD, ' ',          }, { focusnext,      { NULL }                    } },
